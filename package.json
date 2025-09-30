@@ -1,0 +1,32 @@
+{
+  "name": "raah-learning-platform",
+  "version": "1.0.0",
+  "description": "Personalized Adaptive Learning Platform for Classes 1-12",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "esbuild src/main.ts --bundle --sourcemap --outfile=dist/app.js --servedir=.",
+    "build": "esbuild src/main.ts --bundle --minify --outfile=dist/app.js",
+    "watch": "esbuild src/main.ts --bundle --sourcemap --outfile=dist/app.js --watch",
+    "start": "http-server -p 3000"
+  },
+  "keywords": [
+    "education",
+    "e-learning",
+    "adaptive-learning",
+    "typescript",
+    "threejs"
+  ],
+  "author": "RAAH Learning",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "esbuild": "^0.19.0",
+    "http-server": "^14.1.1",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/three": "^0.180.0",
+    "gsap": "^3.13.0",
+    "three": "^0.156.1"
+  }
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>RAAH — Adaptive Learning</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/base.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="app-header">
+    <div class="brand">RAAH</div>
+    <nav id="nav" class="main-nav">
+      <ul>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+      </ul>
+    </nav>
+    <button id="themeBtn" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+      <span class="theme-icon">🌙</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="hero-section" aria-label="Hero">
+      <div id="hero-canvas" class="hero-canvas" aria-hidden="true"></div>
+      <div class="hero-content">
+        <h1>Personalized learning for every student</h1>
+        <p>Adaptive tests, personalized reports, and curated lessons — Class 1 to 12.</p>
+        <button id="tryDemo" class="cta-button">Try a Demo Test</button>
+      </div>
+    </section>
+
+    <section id="classes" class="classes-section">
+      <h2>Select Your Class</h2>
+      <div class="class-grid" id="classGrid">
+        <!-- Classes will be populated by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>© 2025 RAAH Learning. All rights reserved.</p>
+  </footer>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true" hidden>
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script type="module" src="dist/app.js"></script>
+</body>
+</html>
