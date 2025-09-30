@@ -2,6 +2,7 @@
 import { initThemeToggle } from './ui/theme-toggle';
 import { seed, ClassData } from './data/curriculum';
 import { initHeroScene } from './three/hero-scene';
+import { initAuth } from './auth/auth';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -35,6 +36,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Set up event listeners
   setupEventListeners();
 
+  // Initialize authentication
+  initAuth();
+  
   // Log initialization
   console.log('RAAH Learning Platform initialized');
 });
@@ -43,14 +47,34 @@ document.addEventListener('DOMContentLoaded', async () => {
  * Renders class cards in the class grid
  */
 function renderClassCards(): void {
-  const classGrid = document.getElementById('classGrid');
-  if (!classGrid) return;
+  console.log('Rendering class cards...');
+  const classGrid = document.querySelector('.class-grid');
+  if (!classGrid) {
+    console.error('Class grid element not found');
+    return;
+  }
+  
+  // Log the seed data to verify it's loaded
+  console.log('Seed data:', JSON.stringify(seed, null, 2));
+  
+  // Log the class grid element
+  console.log('Class grid element:', classGrid);
 
   // Clear existing content
   classGrid.innerHTML = '';
 
+  if (!seed || seed.length === 0) {
+    console.error('No class data found in seed');
+    const noData = document.createElement('div');
+    noData.textContent = 'No class data available';
+    noData.className = 'no-data';
+    classGrid.appendChild(noData);
+    return;
+  }
+
   // Create a card for each class
-  seed.forEach((classData) => {
+  seed.forEach((classData, index) => {
+    console.log(`Creating card for class ${index + 1}:`, classData);
     const card = document.createElement('div');
     card.className = 'class-card';
     card.setAttribute('data-class-id', classData.id);
